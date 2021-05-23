@@ -1,18 +1,43 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <b-container fluid>
+      <b-card-group deck>
+        <div
+          v-for="plato in platosData"
+          :key="plato.id"
+          style="margin-top:15px"
+        >
+          <plato-item :platoParam="plato"></plato-item>
+        </div>
+      </b-card-group>
+    </b-container>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Plato from "@/components/Plato.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    HelloWorld
+    "plato-item": Plato
+  },
+  mounted() {
+    this.getPlatos();
+  },
+  data() {
+    return {
+      platosData: []
+    };
+  },
+  methods: {
+    async getPlatos() {
+      const res = await fetch("/platos.json");
+      const resJson = await res.json();
+      console.log(resJson);
+      this.platosData = resJson.platos;
+    }
   }
-}
+};
 </script>
