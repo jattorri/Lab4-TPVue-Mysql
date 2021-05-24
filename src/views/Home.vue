@@ -16,28 +16,28 @@
 
 <script>
 // @ is an alias to /src
-import Plato from "@/components/Plato.vue";
+import Plato from '@/components/Plato.vue'
 
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
-    "plato-item": Plato
+    'plato-item': Plato
   },
-  mounted() {
-    this.getPlatos();
+  mounted () {
+    this.getPlatos()
   },
-  data() {
+  data () {
     return {
       platosData: []
-    };
+    }
   },
   methods: {
-    async getPlatos() {
-      const res = await fetch("/platos.json");
-      const resJson = await res.json();
-      console.log(resJson);
-      this.platosData = resJson.platos;
+    async getPlatos () {
+      const res = await fetch('/platos.json')
+      const resJson = await res.json()
+      console.log(resJson)
+      this.platosData = resJson.platos
     }
   }
-};
+}
 </script>

@@ -51,27 +51,27 @@
 
 <script>
 export default {
-  name: "DetallePlato",
+  name: 'DetallePlato',
   components: {},
-  mounted() {
-    this.getPlatoXId();
+  mounted () {
+    this.getPlatoXId()
   },
-  data() {
+  data () {
     return {
       platoEncontrado: []
-    };
+    }
   },
   methods: {
-    async getPlatoXId() {
-      const parametroId = this.$route.params.id;
-      const res = await fetch("/platos.json");
-      const resJson = await res.json();
-      console.log(resJson);
+    async getPlatoXId () {
+      const parametroId = this.$route.params.id
+      const res = await fetch('/platos.json')
+      const resJson = await res.json()
+      console.log(resJson)
       this.platoEncontrado = await resJson.platos.find(
         plato => plato.id === parametroId
-      );
-      console.log(this.platoEncontrado);
+      )
+      console.log(this.platoEncontrado)
     }
   }
-};
+}
 </script>

@@ -13,7 +13,7 @@
       <b-card-title :title="platoParam.nombre"></b-card-title>
       <b-card-text>
         $ {{ platoParam.precio }}
-        <span style="color:red" v-if="platoParam.id == 5"> 
+        <span style="color:red" v-if="platoParam.id == 5">
         (Es Bebida)
         </span>
       </b-card-text>
@@ -30,7 +30,7 @@
 </template>
 <script>
 export default {
-  props: ["platoParam"]
-};
+  props: ['platoParam']
+}
 </script>
 <style lang=""></style>

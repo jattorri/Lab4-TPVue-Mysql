@@ -8,12 +8,12 @@
 </template>
 
 <script>
-import NavBarTop from "@/components/NavBarTop.vue";
+import NavBarTop from '@/components/NavBarTop.vue'
 export default {
   components: {
-    "top-nav-bar": NavBarTop
+    'top-nav-bar': NavBarTop
   }
-};
+}
 </script>
 
 <style lang="scss"></style>
