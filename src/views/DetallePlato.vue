@@ -27,21 +27,19 @@
             <b-col><b>Ingredientes:</b></b-col>
           </b-row>
           <b-row>
-            <b-col
-              ><li
+            <b-col>
+              <li
                 v-for="(ingrediente, index) in platoEncontrado.ingredientes"
-                :key="index"
-              >
+                :key="index">
                 {{ ingrediente }}
               </li>
             </b-col>
           </b-row>
           <b-row style="text-align:center">
-            <b-col
-              ><b-button href="/" variant="outline-primary"
-                >VOLVER</b-button
-              ></b-col
-            >
+            <b-col>
+              <b-button href="/" variant="outline-primary">VOLVER</b-button>
+              <b-button type="reset" variant="primary">Edit</b-button>
+            </b-col>
           </b-row>
         </b-col>
       </b-row>
@@ -64,7 +62,7 @@ export default {
   methods: {
     async getPlatoXId () {
       const parametroId = this.$route.params.id
-      const res = await fetch('/platos.json')
+      const res = await fetch('http://localhost:9000/api/paises')
       const resJson = await res.json()
       console.log(resJson)
       this.platoEncontrado = await resJson.platos.find(
